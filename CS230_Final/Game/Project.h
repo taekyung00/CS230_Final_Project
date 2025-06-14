@@ -11,6 +11,7 @@
 #include "BusLine.h"
 #include "Passenger.h"
 #include "Particles.h"
+#include "Obstacle.h"
 class Project : public CS230::GameState {
 public:
     Project();
@@ -24,7 +25,7 @@ public:
     }
 private:
     Player* player_ptr;
-    CS230::Camera* camera;
-    static constexpr int default_width = 600;
-    static constexpr int default_height = 800;
+    //CS230::Camera* camera;
+    //static constexpr int default_width = 600;
+    //static constexpr int default_height = 800;
 };

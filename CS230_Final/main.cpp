@@ -11,11 +11,12 @@ Created:    March 4, 2025
 #include <iostream>
 
 #include "Engine/Engine.h"
-#include "Game/Mode1.h"
-#include "Game/Mode2.h"
 #include "Game/Splash.h"
 #include "Game/MainMenu.h"
 #include "Game/Project.h"
+#include "Game/GoodSandwich.h"
+#include "Game/NormalSandwich.h"
+#include "Game/BadSandwich.h"
 
 int main() {
     try {
@@ -29,12 +30,14 @@ int main() {
         engine.GetGameStateManager().AddGameState(splash);
         MainMenu mainmenu;
         engine.GetGameStateManager().AddGameState(mainmenu);
-        Mode1 mode1;
-        engine.GetGameStateManager().AddGameState(mode1);
-        Mode2 mode2;
-        engine.GetGameStateManager().AddGameState(mode2);
         Project project;
         engine.GetGameStateManager().AddGameState(project);
+        GoodSandwich goodsandwich;
+        engine.GetGameStateManager().AddGameState(goodsandwich);
+        NormalSandwich normalsandwich;
+        engine.GetGameStateManager().AddGameState(normalsandwich);
+        BadSandwich badsandwich;
+        engine.GetGameStateManager().AddGameState(badsandwich);
 
 
         while (engine.HasGameEnded() == false) {

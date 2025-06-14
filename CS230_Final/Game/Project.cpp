@@ -1,8 +1,8 @@
 #include "Project.h"
 
 Project::Project() : 
-	player_ptr(nullptr),
-	camera(nullptr)
+	player_ptr(nullptr)
+	//camera(nullptr)
 {}
 
 void Project::Load() 
@@ -33,6 +33,9 @@ void Project::Load()
 	GetGSComponent<CS230::GameObjectManager>()->Add(new Passenger(BusLine::line3, player_ptr, 1));
 	GetGSComponent<CS230::GameObjectManager>()->Add(new Passenger(BusLine::line4, player_ptr, 1));
 	GetGSComponent<CS230::GameObjectManager>()->Add(new Passenger(BusLine::line5, player_ptr, 1));
+	GetGSComponent<CS230::GameObjectManager>()->Add(new Obstacle(player_ptr,{ BusStartPosition + SeatWidthHeight + PlayerWidthHeight, SeatWidthHeight}));
+	GetGSComponent<CS230::GameObjectManager>()->Add(new Obstacle(player_ptr,{ BusStartPosition + SeatWidthHeight + PlayerWidthHeight, SeatWidthHeight * 3}));
+	GetGSComponent<CS230::GameObjectManager>()->Add(new Obstacle(player_ptr,{ BusStartPosition + SeatWidthHeight + PlayerWidthHeight, SeatWidthHeight * 5 }));
 }
 
 void Project::Update([[maybe_unused]] double dt) 
@@ -51,11 +54,10 @@ void Project::Update([[maybe_unused]] double dt)
 
 void Project::Unload() 
 {
-	
 	GetGSComponent<CS230::GameObjectManager>()->Unload();
 	ClearGSComponents();
 	player_ptr = nullptr;
-	camera = nullptr;
+	//camera = nullptr;
 }
 
 void Project::Draw() 

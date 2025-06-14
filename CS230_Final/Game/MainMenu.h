@@ -33,25 +33,18 @@ public:
     static constexpr unsigned int seleted_color = 0xFFFFFFFF;
 private:
     CS230::Texture* title_texture;
-    CS230::Texture* side_scroller_texture;
-    CS230::Texture* space_shooter_texture;
     CS230::Texture* project_texture;
     CS230::Texture* exit_texture;
 
-    unsigned int side_scroller_color ;
-    unsigned int space_shooter_color ;
+
     unsigned int project_color ;
     unsigned int exit_color ;
 
     enum class Option
     {
-        side_scroller,
-        space_shooter,
         project,
         exit
     };
     Option current_option;
     void update_textures();
-    static constexpr int default_width = 800;
-    static constexpr int default_height = 600;
 };

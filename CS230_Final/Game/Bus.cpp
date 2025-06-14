@@ -103,7 +103,16 @@ void Bus::Update(double dt) {
 		player_can_steel[static_cast<int>(BusLine::line3)] = false;
 		player_can_steel[static_cast<int>(BusLine::line4)] = false;
 		player_can_steel[static_cast<int>(BusLine::line5)] = false;
-		//Engine::GetLogger().LogDebug("out of bus");
+		if (player->GetGOComponent<Score>()->Value() >= 80) {
+			Engine::GetGameStateManager().SetNextGameState(static_cast<int>(States::GoodSandwich));
+		}
+		else if (player->GetGOComponent<Score>()->Value() < 80 &&
+			player->GetGOComponent<Score>()->Value() >= 40) {
+			Engine::GetGameStateManager().SetNextGameState(static_cast<int>(States::NormalSandwich));
+		}
+		else {
+			Engine::GetGameStateManager().SetNextGameState(static_cast<int>(States::BadSandwich));
+		}
 	}
 
 	//if (player_can_steel[static_cast<int>(BusLine::line1)]) {

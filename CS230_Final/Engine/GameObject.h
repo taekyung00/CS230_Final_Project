@@ -50,13 +50,14 @@ namespace CS230 {
         }
 
         void SetPosition(Math::vec2 new_position);
+        void SetVelocity(Math::vec2 new_velocity);
+        void UpdateVelocity(Math::vec2 delta);
         const bool& Destroyed() const { return destroy; }
         void Destroy() { destroy = true; }
     protected:
         
         void UpdatePosition(Math::vec2 delta);
-        void SetVelocity(Math::vec2 new_velocity);
-        void UpdateVelocity(Math::vec2 delta);
+        
         void SetScale(Math::vec2 new_scale);
         void UpdateScale(Math::vec2 delta);
         void SetRotation(double new_rotation);

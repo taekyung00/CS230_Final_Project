@@ -5,6 +5,7 @@ Player::Player() :
 {
 	AddGOComponent(new CS230::Sprite("Assets/Player.spt", this));
 	AddGOComponent(new Score(0));
+    AddGOComponent(new Ziggle(this, false,0.0));
     score = GetGOComponent<Score>()->Value();
     score_texture = (Engine::GetFont(static_cast<int>(Fonts::Outlined)).PrintToTexture("Score", 0xFFFFFFFF));
     score_amount_texture = Engine::GetFont(static_cast<int>(Fonts::Outlined)).PrintToTexture(std::to_string(score), 0xFFFFFFFF);
@@ -42,7 +43,7 @@ void Player::Draw(Math::TransformationMatrix camera_matrix) {
 }
 
 bool Player::CanCollideWith(GameObjectTypes other_object_type) {
-    if (other_object_type == GameObjectTypes::Passenger) {
+    if (other_object_type == GameObjectTypes::Passenger || other_object_type == GameObjectTypes::Obstacle) {
         return true;
     }
     return false;
@@ -61,6 +62,9 @@ void Player::ResolveCollision(GameObject* other_object) {
             UpdatePosition(Math::vec2{ (passenger_rect.Right() - player_rect.Left()), 0.0 });
             SetVelocity({ 0, GetVelocity().y });
         }
+    }
+    else if (other_object->Type() == GameObjectTypes::Obstacle) {
+        GetGOComponent<Ziggle>()->Set(0.5);
     }
 }
 

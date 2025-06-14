@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../Engine/GameObject.h"
+#include "Bounce.h"
 
 class Passenger;
 

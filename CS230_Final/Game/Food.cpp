@@ -5,6 +5,7 @@ Food::Food(Passenger* owner, Math::vec2 pos) :
 	owner(owner),
 	GameObject(pos + Math::vec2{PassengerWidthHeight * 2/3,PassengerWidthHeight * 2 / 3 })
 {
+	AddGOComponent(new Bounce(this,GetPosition(),true));
 	std::random_device rd;
 	std::mt19937 gen(rd());
 

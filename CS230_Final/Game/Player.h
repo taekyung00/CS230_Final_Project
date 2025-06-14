@@ -6,6 +6,7 @@
 #include "Constants.h"
 #include "Passenger.h"
 #include "Score.h"
+#include "Ziggle.h"
 
 
 class Player : public CS230::GameObject {
@@ -26,7 +27,7 @@ public:
 	std::vector<bool>&			SetCanSteel() { return can_steel; }
 	const std::vector<bool>&	GetCanSteel() const{ return can_steel; }
 
-	//int&						SetScore() { return score; }
+	//int							GetScore() { return score; }
 	
 private:
 	const Math::vec2	player_velocity = { 96.0,96.0 };

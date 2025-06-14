@@ -13,6 +13,7 @@ public:
     void Update(double dt) override;
     void Draw(const CS230::Camera& camera);
 private:
+    Math::ivec2 window_size;
     bool draw = true;
     CS230::Texture* black_dot;
     CS230::Texture* red_dot;

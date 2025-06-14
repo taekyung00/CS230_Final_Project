@@ -11,7 +11,8 @@ Created:    March 12, 2025
 enum class States {
     Splash,
     MainMenu,
-    Mode1,
-    Mode2,
-    Project
+    Project,
+    GoodSandwich,
+    NormalSandwich,
+    BadSandwich
 };
