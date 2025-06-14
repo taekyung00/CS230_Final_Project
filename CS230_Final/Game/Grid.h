@@ -13,7 +13,7 @@ public:
     void Update(double dt) override;
     void Draw(const CS230::Camera& camera);
 private:
-    bool draw = false;
+    bool draw = true;
     CS230::Texture* black_dot;
     CS230::Texture* red_dot;
     CS230::Texture* blue_dot;

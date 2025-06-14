@@ -29,8 +29,9 @@ namespace CS230 {
 
         virtual GameObjectTypes Type() = 0;
         virtual std::string TypeName() = 0;
-        bool IsCollidingWith(GameObject* other_object);
-        bool IsCollidingWith(Math::vec2 point);
+        virtual int DrawPriority() const { return 10; }
+        virtual bool IsCollidingWith(GameObject* other_object);
+        virtual bool IsCollidingWith(Math::vec2 point);
         virtual bool CanCollideWith(GameObjectTypes other_object_type);
         virtual void ResolveCollision([[maybe_unused]]GameObject* other_object) {};
 

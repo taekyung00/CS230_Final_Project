@@ -16,8 +16,18 @@ void CS230::GameObjectManager::Add(GameObject* object){
 void CS230::GameObjectManager::Unload(){
 	for (GameObject* object : objects) {
 		delete object;
+		object = nullptr;
 	}
 	objects.clear();
+}
+
+void CS230::GameObjectManager::SortForDraw()
+{
+	objects.sort(
+		[](GameObject* a, GameObject* b) {
+			return a->DrawPriority() < b->DrawPriority();
+		}
+	);
 }
 
 void CS230::GameObjectManager::UpdateAll(double dt){

@@ -181,6 +181,7 @@ xcopy /d /y Assets\* "$(OutputPath)Assets"
     <ClCompile Include="Engine\Window.cpp" />
     <ClCompile Include="Game\Asteroid.cpp" />
     <ClCompile Include="Game\Background.cpp" />
+    <ClCompile Include="Game\Bus.cpp" />
     <ClCompile Include="Game\Cat.cpp" />
     <ClCompile Include="Game\Crates.cpp" />
     <ClCompile Include="Game\Floor.cpp" />
@@ -190,6 +191,8 @@ xcopy /d /y Assets\* "$(OutputPath)Assets"
     <ClCompile Include="Game\Meteor.cpp" />
     <ClCompile Include="Game\Mode1.cpp" />
     <ClCompile Include="Game\Mode2.cpp" />
+    <ClCompile Include="Game\Passenger.cpp" />
+    <ClCompile Include="Game\Player.cpp" />
     <ClCompile Include="Game\Portal.cpp" />
     <ClCompile Include="Game\Project.cpp" />
     <ClCompile Include="Game\Robot.cpp" />
@@ -225,7 +228,10 @@ xcopy /d /y Assets\* "$(OutputPath)Assets"
     <ClInclude Include="Engine\Window.h" />
     <ClInclude Include="Game\Asteroid.h" />
     <ClInclude Include="Game\Background.h" />
+    <ClInclude Include="Game\Bus.h" />
+    <ClInclude Include="Game\BusLine.h" />
     <ClInclude Include="Game\Cat.h" />
+    <ClInclude Include="Game\Constants.h" />
     <ClInclude Include="Game\Crates.h" />
     <ClInclude Include="Game\Floor.h" />
     <ClInclude Include="Game\Fonts.h" />
@@ -238,6 +244,8 @@ xcopy /d /y Assets\* "$(OutputPath)Assets"
     <ClInclude Include="Game\Mode1.h" />
     <ClInclude Include="Game\Mode2.h" />
     <ClInclude Include="Game\Particles.h" />
+    <ClInclude Include="Game\Passenger.h" />
+    <ClInclude Include="Game\Player.h" />
     <ClInclude Include="Game\Portal.h" />
     <ClInclude Include="Game\Project.h" />
     <ClInclude Include="Game\Robot.h" />

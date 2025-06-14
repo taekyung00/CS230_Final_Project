@@ -17,6 +17,7 @@ MainMenu::MainMenu() :
 
 void MainMenu::Load()
 {
+	//Engine::GetWindow().SetSize({ default_width, default_height });
 	title_texture = (Engine::GetFont(static_cast<int>(Fonts::Outlined)).PrintToTexture("CS230 Engine Test", title_color));
 	update_textures();
 }

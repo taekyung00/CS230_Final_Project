@@ -52,5 +52,6 @@ private:
     };
     Option current_option;
     void update_textures();
-
+    static constexpr int default_width = 800;
+    static constexpr int default_height = 600;
 };

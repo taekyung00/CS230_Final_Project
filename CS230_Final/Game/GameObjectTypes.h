@@ -20,5 +20,8 @@ enum class GameObjectTypes {
     Score,
     Laser,
     Particle,
+    Player,
+    Bus,
+    Passenger,
     Count,
 };

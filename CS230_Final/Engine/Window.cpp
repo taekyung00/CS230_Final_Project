@@ -15,7 +15,7 @@ Created:    March 11, 2025
 
 void CS230::Window::Start(std::string title) {
     size = { default_width, default_height };
-    SetConfigFlags(FLAG_WINDOW_RESIZABLE | FLAG_VSYNC_HINT | FLAG_MSAA_4X_HINT);
+    SetConfigFlags(/*FLAG_WINDOW_RESIZABLE |*/ FLAG_VSYNC_HINT | FLAG_MSAA_4X_HINT);
     InitWindow(default_width, default_height, title.c_str());
     rlDisableBackfaceCulling();
     SetExitKey(KEY_NULL);
@@ -43,6 +43,12 @@ bool CS230::Window::IsClosed() const {
 Math::ivec2 CS230::Window::GetSize() const
 {
     return size;
+}
+
+void CS230::Window::SetSize(Math::ivec2 new_size)
+{
+    SetWindowSize(new_size.x, new_size.y);
+    //SetWindowPosition(new_size.x - default_width  , new_size.y -default_height  );
 }
 
 void CS230::Window::Clear(unsigned int rgba) {
