@@ -23,5 +23,7 @@ enum class GameObjectTypes {
     Player,
     Bus,
     Passenger,
+    Food,
+    Obstacle,
     Count,
 };

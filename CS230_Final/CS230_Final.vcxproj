@@ -185,6 +185,7 @@ xcopy /d /y Assets\* "$(OutputPath)Assets"
     <ClCompile Include="Game\Cat.cpp" />
     <ClCompile Include="Game\Crates.cpp" />
     <ClCompile Include="Game\Floor.cpp" />
+    <ClCompile Include="Game\Food.cpp" />
     <ClCompile Include="Game\Grid.cpp" />
     <ClCompile Include="Game\Laser.cpp" />
     <ClCompile Include="Game\MainMenu.cpp" />
@@ -228,6 +229,7 @@ xcopy /d /y Assets\* "$(OutputPath)Assets"
     <ClInclude Include="Engine\Window.h" />
     <ClInclude Include="Game\Asteroid.h" />
     <ClInclude Include="Game\Background.h" />
+    <ClInclude Include="Game\Bounce.h" />
     <ClInclude Include="Game\Bus.h" />
     <ClInclude Include="Game\BusLine.h" />
     <ClInclude Include="Game\Cat.h" />
@@ -235,6 +237,7 @@ xcopy /d /y Assets\* "$(OutputPath)Assets"
     <ClInclude Include="Game\Crates.h" />
     <ClInclude Include="Game\Floor.h" />
     <ClInclude Include="Game\Fonts.h" />
+    <ClInclude Include="Game\Food.h" />
     <ClInclude Include="Game\GameObjectTypes.h" />
     <ClInclude Include="Game\Gravity.h" />
     <ClInclude Include="Game\Grid.h" />
@@ -254,6 +257,7 @@ xcopy /d /y Assets\* "$(OutputPath)Assets"
     <ClInclude Include="Game\Ship.h" />
     <ClInclude Include="Game\Splash.h" />
     <ClInclude Include="Game\States.h" />
+    <ClInclude Include="Game\Ziggle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

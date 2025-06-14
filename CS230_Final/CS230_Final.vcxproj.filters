@@ -142,6 +142,9 @@
     <ClCompile Include="Game\Passenger.cpp">
       <Filter>Game\Project\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Food.cpp">
+      <Filter>Game\Project\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Logger.h">
@@ -296,6 +299,15 @@
     </ClInclude>
     <ClInclude Include="Game\Constants.h">
       <Filter>Game\Project\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Food.h">
+      <Filter>Game\Project\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Bounce.h">
+      <Filter>Game\Project\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Ziggle.h">
+      <Filter>Game\Project\Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -12,12 +12,14 @@ void Project::Load()
 	camera->SetLimit({ {0,0},Engine::GetWindow().GetSize() });
 	AddGSComponent(camera);*/
 	//GetGSComponent<CS230::Camera>()->SetPosition({ 0.0, 0.0 });
-	AddGSComponent(new Grid());
+	
 #ifdef _DEBUG
 	AddGSComponent(new CS230::ShowCollision());
+	AddGSComponent(new Grid());
 #endif
-
 	AddGSComponent(new CS230::GameObjectManager);
+	AddGSComponent(new CS230::ParticleManager<Particles::Tears>());
+	
 	player_ptr = new Player();
 	GetGSComponent<CS230::GameObjectManager>()->Add(player_ptr);
 	GetGSComponent<CS230::GameObjectManager>()->Add(new Bus(player_ptr));

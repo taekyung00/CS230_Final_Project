@@ -4,7 +4,11 @@ Player::Player() :
 	GameObject({ BusStartPosition+SeatWidthHeight + SeatWidthHeight/2 - PlayerWidthHeight/2,0 })
 {
 	AddGOComponent(new CS230::Sprite("Assets/Player.spt", this));
-	//SetVelocity({ 30,30 });
+	AddGOComponent(new Score(0));
+    score = GetGOComponent<Score>()->Value();
+    score_texture = (Engine::GetFont(static_cast<int>(Fonts::Outlined)).PrintToTexture("Score", 0xFFFFFFFF));
+    score_amount_texture = Engine::GetFont(static_cast<int>(Fonts::Outlined)).PrintToTexture(std::to_string(score), 0xFFFFFFFF);
+    window_height = Engine::GetWindow().GetSize().y;
 }
 
 void Player::Update([[maybe_unused]] double dt) {
@@ -28,6 +32,13 @@ void Player::Update([[maybe_unused]] double dt) {
     else {
         SetVelocity({ GetVelocity().x,0 });
     }
+    update_score_text();
+}
+
+void Player::Draw(Math::TransformationMatrix camera_matrix) {
+    GameObject::Draw(camera_matrix);
+    score_texture->Draw(Math::TranslationMatrix(Math::vec2{ 0,window_height - score_texture->GetSize().y }));
+    score_amount_texture->Draw(Math::TranslationMatrix(Math::vec2{ 0,window_height - score_texture->GetSize().y - score_amount_texture->GetSize().y }));
 }
 
 bool Player::CanCollideWith(GameObjectTypes other_object_type) {
@@ -50,5 +61,14 @@ void Player::ResolveCollision(GameObject* other_object) {
             UpdatePosition(Math::vec2{ (passenger_rect.Right() - player_rect.Left()), 0.0 });
             SetVelocity({ 0, GetVelocity().y });
         }
+    }
+}
+
+void Player::update_score_text() {
+    if (score != GetGOComponent<Score>()->Value()) {
+        score_amount_texture->~Texture();
+        delete score_amount_texture;
+        score = GetGOComponent<Score>()->Value();
+        score_amount_texture = Engine::GetFont(static_cast<int>(Fonts::Outlined)).PrintToTexture( std::to_string(score), 0xFFFFFFFF);
     }
 }

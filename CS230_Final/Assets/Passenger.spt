@@ -2,3 +2,15 @@ Assets/Passenger.png
 FrameSize 48 48
 HotSpot 0 0
 RectCollision -20 -20 76 76
+Frame 0 0
+Frame 48 0
+Frame 96 0
+Frame 0 48
+Frame 48 48
+Frame 96 48
+Frame 0 96
+Frame 48 96
+Frame 96 96
+Anim Assets/PassengerIdle.anm
+Anim Assets/PassengerAngry.anm
+Anim Assets/PassengerSad.anm

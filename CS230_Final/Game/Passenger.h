@@ -1,11 +1,17 @@
 #pragma once
+#include <random>
 
 #include "../Engine/GameObject.h"
+#include "../Engine/Particle.h"
+#include "../Engine/Timer.h"
 
 #include "BusLine.h"
 #include "Player.h"
 #include "Constants.h"
 #include "Fonts.h"
+#include "Particles.h"
+#include "Food.h"
+
 class Passenger : public CS230::GameObject {
 public:
     Passenger(BusLine busline,Player* player, int is_right);
@@ -15,12 +21,15 @@ public:
     bool				CanCollideWith(GameObjectTypes other_object_type) override;
     void				ResolveCollision(GameObject* other_object) override;
 
-    void                Draw(Math::TransformationMatrix camera_matrix) override;
+    bool                GetHasFood() const { return has_food; }
+
 private:
-    Player* player;
-    BusLine busline;
-    CS230::Texture* has_food_texture;
-    bool has_food = true;
+    static constexpr double cry_timer = 1.0;
+    Player*                 player;
+    BusLine                 busline;
+    bool                    has_food = true;
+
+
     enum class Animations {
         Idle,
         Angry,
