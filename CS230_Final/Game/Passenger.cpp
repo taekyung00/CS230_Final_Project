@@ -21,13 +21,13 @@ bool Passenger::CanCollideWith(GameObjectTypes other_object_type) {
 
 void Passenger::ResolveCollision(GameObject* other_object) {
     if (other_object->Type() == GameObjectTypes::Player) {
-		if (has_food == true) {
+		if (has_food == true && get_mad == false) {
 			if (player->GetCanSteel()[static_cast<int>(busline)] == true) {
 				has_food = false;
 				change_state(&state_sad);
 			}
 			else {
-				has_food = false;
+				get_mad = true;
 				change_state(&state_angry);
 			}
 			

@@ -28,6 +28,7 @@ private:
     Player*                 player;
     BusLine                 busline;
     bool                    has_food = true;
+    bool                    get_mad = false;
 
 
     enum class Animations {
