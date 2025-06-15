@@ -23,12 +23,11 @@ void Passenger::ResolveCollision(GameObject* other_object) {
     if (other_object->Type() == GameObjectTypes::Player) {
 		if (has_food == true) {
 			if (player->GetCanSteel()[static_cast<int>(busline)] == true) {
-				player->GetGOComponent<Score>()->Add(20);
 				has_food = false;
 				change_state(&state_sad);
 			}
 			else {
-				player->GetGOComponent<Score>()->Sub(10);
+				has_food = false;
 				change_state(&state_angry);
 			}
 			
@@ -52,6 +51,7 @@ void Passenger::State_Idle::CheckExit([[maybe_unused]] GameObject* object) {
 void Passenger::State_Angry::Enter([[maybe_unused]] GameObject* object) {
 	Passenger* passenger = static_cast<Passenger*>(object);
 	passenger->GetGOComponent<CS230::Sprite>()->PlayAnimation(static_cast<int>(Animations::Angry));
+	passenger->player->GetGOComponent<Score>()->Sub(10);
 }
 
 void Passenger::State_Angry::Update([[maybe_unused]] GameObject* object, [[maybe_unused]] double dt) {
@@ -64,6 +64,7 @@ void Passenger::State_Angry::CheckExit([[maybe_unused]] GameObject* object) {
 
 void Passenger::State_Sad::Enter([[maybe_unused]] GameObject* object) {
 	Passenger* passenger = static_cast<Passenger*>(object);
+	passenger->player->GetGOComponent<Score>()->Add(20);
 	passenger->GetGOComponent<CS230::Sprite>()->PlayAnimation(static_cast<int>(Animations::Sad));
 	passenger->GetGOComponent<CS230::Timer>()->Set(cry_timer);
 	Engine::GetGameStateManager().GetGSComponent<CS230::ParticleManager<Particles::Tears>>()->Emit(1, Math::vec2{ 10,PassengerWidthHeight * 2 / 3 } + passenger->GetPosition(), { 0,0 }, { -10, -10 }, PI / 3);
