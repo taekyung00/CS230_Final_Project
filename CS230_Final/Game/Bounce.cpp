@@ -19,11 +19,11 @@ void Bounce::Update(double dt) {
 	if (looping == true || (looping == false &&timer > 0.0)) {
 		if (given_object->GetPosition().y <= start_position.y) {
 			given_object->SetVelocity({ given_object->GetVelocity().x,bounce_velocity });
-			Engine::GetLogger().LogDebug("just bounced");
+			//Engine::GetLogger().LogDebug("just bounced");
 		}
 		else {
 			given_object->UpdateVelocity({ 0,-100 * dt });
-			Engine::GetLogger().LogDebug("falling");
+			//Engine::GetLogger().LogDebug("falling");
 		}
 	}
 }

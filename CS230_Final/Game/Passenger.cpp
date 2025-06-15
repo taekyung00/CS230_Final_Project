@@ -23,12 +23,12 @@ void Passenger::ResolveCollision(GameObject* other_object) {
     if (other_object->Type() == GameObjectTypes::Player) {
 		if (has_food == true) {
 			if (player->GetCanSteel()[static_cast<int>(busline)] == true) {
-				player->GetGOComponent<Score>()->Add(10);
+				player->GetGOComponent<Score>()->Add(20);
 				has_food = false;
 				change_state(&state_sad);
 			}
 			else {
-				Engine::GetLogger().LogDebug("You're Captured!!!!");
+				player->GetGOComponent<Score>()->Sub(10);
 				change_state(&state_angry);
 			}
 			
