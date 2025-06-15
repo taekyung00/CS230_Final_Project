@@ -18,7 +18,7 @@ MainMenu::MainMenu() :
 void MainMenu::Load()
 {
 	//Engine::GetWindow().SetSize({ default_width, default_height });
-	title_texture = (Engine::GetFont(static_cast<int>(Fonts::Outlined)).PrintToTexture("CS230 Engine Test", title_color));
+	title_texture = (Engine::GetFont(static_cast<int>(Fonts::Outlined)).PrintToTexture("CS230 Final Project", title_color));
 	update_textures();
 }
 
@@ -69,8 +69,8 @@ void MainMenu::Draw()
 {
 	Engine::GetWindow().Clear(0x000000FF);
 	title_texture->Draw(Math::TranslationMatrix(Math::ivec2{ 
-		Engine::GetWindow().GetSize().x/2  - title_texture->GetSize().x/2 - 100, 
-		Engine::GetWindow().GetSize().y - title_texture->GetSize().y - 100 }) * Math::ScaleMatrix(1.5));
+		Engine::GetWindow().GetSize().x/2  - title_texture->GetSize().x/2 , 
+		Engine::GetWindow().GetSize().y - title_texture->GetSize().y - 100 }));
 
 	project_texture->Draw(Math::TranslationMatrix(Math::ivec2{
 		Engine::GetWindow().GetSize().x / 2 - project_texture->GetSize().x / 2,
