@@ -6,11 +6,7 @@ Food::Food(Passenger* owner, Math::vec2 pos) :
 	GameObject(pos + Math::vec2{PassengerWidthHeight * 2/3,PassengerWidthHeight * 2 / 3 })
 {
 	AddGOComponent(new Bounce(this,GetPosition(),true));
-	std::random_device rd;
-	std::mt19937 gen(rd());
-
-	std::discrete_distribution<> dist({ 20, 20, 20, 20, 20 }); // index 0: Bread, 1: Hotdog, 2: KimBab, 3: Snack, 4: Strawberry
-	int result = dist(gen);
+	int result = Engine::GetGameStateManager().GetGSComponent<Random>()->PickRandomIndex(5, true);// index 0: Bread, 1: Hotdog, 2: KimBab, 3: Snack, 4: Strawberry
 
 	switch (result)
 	{
@@ -35,6 +31,9 @@ Food::Food(Passenger* owner, Math::vec2 pos) :
 void Food::Update(double dt) {
 	GameObject::Update(dt);
 	if (owner->GetHasFood() == false) {
+		Engine::GetGameStateManager().GetGSComponent<CS230::ParticleManager<Particles::Shining>>()->Emit(1, GetPosition(), {0,0}, {-10, -10}, PI / 3);
+		Engine::GetGameStateManager().GetGSComponent<CS230::ParticleManager<Particles::Shining>>()->Emit(1, Math::vec2{PlayerWidthHeight/2,0} + GetPosition(), {0,0}, {10, 10}, PI / 3);
+		Engine::GetGameStateManager().GetGSComponent<CS230::ParticleManager<Particles::Shining>>()->Emit(1, Math::vec2{0,PlayerWidthHeight/2} + GetPosition(), { 0,0 }, { 10, -10 }, PI / 3);
 		Destroy();
 	}
 }

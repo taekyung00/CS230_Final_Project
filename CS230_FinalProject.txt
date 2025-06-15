@@ -1,0 +1,18 @@
+- Taekyung Ho
+- Sanghyuk Kim
+
+<Particle>
+-Tears
+-Shining
+
+<Game Object Component>
+-Bounce : make object bounce effect
+-Ziggle(same like jiggle) : make object jiggle when attacked
+
+<Game State Component>
+-Grid : we can draw grid in debug mode so we can easily place new object in games. we also toggle it by TAB key.
+-Random : based on weighted value, it returned random number by using std::random_device, std::mt19937
+
+<Game Object with multiple state>
+-Passenger
+state classes : idle, angry, sad

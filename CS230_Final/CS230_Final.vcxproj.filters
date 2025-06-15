@@ -130,6 +130,9 @@
     <ClCompile Include="Game\BadSandwich.cpp">
       <Filter>Game\Project\States</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Random.cpp">
+      <Filter>Game\Project\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Logger.h">
@@ -266,6 +269,9 @@
     </ClInclude>
     <ClInclude Include="Game\BadSandwich.h">
       <Filter>Game\Project\States</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Random.h">
+      <Filter>Game\Project\Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -7,6 +7,7 @@ Project::Project() :
 
 void Project::Load() 
 {
+	//srand(static_cast<unsigned int>(time(NULL)));
 	//Engine::GetWindow().SetSize({ default_width, default_height });
 	/*camera = new CS230::Camera({ Math::vec2{ 0,0 }, static_cast<Math::vec2>(Engine::GetWindow().GetSize()) });
 	camera->SetLimit({ {0,0},Engine::GetWindow().GetSize() });
@@ -17,8 +18,10 @@ void Project::Load()
 	AddGSComponent(new CS230::ShowCollision());
 	AddGSComponent(new Grid());
 #endif
+	AddGSComponent(new Random());
 	AddGSComponent(new CS230::GameObjectManager);
 	AddGSComponent(new CS230::ParticleManager<Particles::Tears>());
+	AddGSComponent(new CS230::ParticleManager<Particles::Shining>());
 	
 	player_ptr = new Player();
 	GetGSComponent<CS230::GameObjectManager>()->Add(player_ptr);
@@ -33,9 +36,9 @@ void Project::Load()
 	GetGSComponent<CS230::GameObjectManager>()->Add(new Passenger(BusLine::line3, player_ptr, 1));
 	GetGSComponent<CS230::GameObjectManager>()->Add(new Passenger(BusLine::line4, player_ptr, 1));
 	GetGSComponent<CS230::GameObjectManager>()->Add(new Passenger(BusLine::line5, player_ptr, 1));
-	GetGSComponent<CS230::GameObjectManager>()->Add(new Obstacle(player_ptr,{ BusStartPosition + SeatWidthHeight + PlayerWidthHeight, SeatWidthHeight}));
-	GetGSComponent<CS230::GameObjectManager>()->Add(new Obstacle(player_ptr,{ BusStartPosition + SeatWidthHeight + PlayerWidthHeight, SeatWidthHeight * 3}));
-	GetGSComponent<CS230::GameObjectManager>()->Add(new Obstacle(player_ptr,{ BusStartPosition + SeatWidthHeight + PlayerWidthHeight, SeatWidthHeight * 5 }));
+	GetGSComponent<CS230::GameObjectManager>()->Add(new Obstacle(player_ptr, { static_cast<double>(BusStartPosition + SeatWidthHeight + PlayerWidthHeight * (rand() % 3)) , SeatWidthHeight }));
+	GetGSComponent<CS230::GameObjectManager>()->Add(new Obstacle(player_ptr, { static_cast<double>(BusStartPosition + SeatWidthHeight + PlayerWidthHeight * (rand() % 3)) , SeatWidthHeight * 3 }));
+	GetGSComponent<CS230::GameObjectManager>()->Add(new Obstacle(player_ptr, { static_cast<double>(BusStartPosition + SeatWidthHeight + PlayerWidthHeight * (rand() % 3)) , SeatWidthHeight * 5 }));
 }
 
 void Project::Update([[maybe_unused]] double dt) 

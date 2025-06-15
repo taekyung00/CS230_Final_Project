@@ -12,6 +12,7 @@
 #include "Passenger.h"
 #include "Particles.h"
 #include "Obstacle.h"
+#include "Random.h"
 class Project : public CS230::GameState {
 public:
     Project();

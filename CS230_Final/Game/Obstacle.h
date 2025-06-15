@@ -1,7 +1,7 @@
 #pragma once
-#include <random>
 #include "../Engine/GameObject.h"
 #include "Score.h"
+#include "Random.h"
 #include "Ziggle.h"
 
 class Player;

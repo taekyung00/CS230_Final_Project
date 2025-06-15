@@ -2,6 +2,7 @@
 
 #include "../Engine/GameObject.h"
 #include "Bounce.h"
+#include "Random.h"
 
 class Passenger;
 

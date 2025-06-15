@@ -10,6 +10,7 @@ Player::Player() :
     score_texture = (Engine::GetFont(static_cast<int>(Fonts::Outlined)).PrintToTexture("Score", 0xFFFFFFFF));
     score_amount_texture = Engine::GetFont(static_cast<int>(Fonts::Outlined)).PrintToTexture(std::to_string(score), 0xFFFFFFFF);
     window_height = Engine::GetWindow().GetSize().y;
+    SetVelocity({ 0,100 });
 }
 
 void Player::Update([[maybe_unused]] double dt) {
@@ -24,15 +25,15 @@ void Player::Update([[maybe_unused]] double dt) {
         SetVelocity({ 0,GetVelocity().y });
     }
 
-    if (Engine::GetInput().KeyDown(CS230::Input::Keys::Up)) {
-        SetVelocity({ GetVelocity().x,player_velocity.y });
-    }
-    else if (Engine::GetInput().KeyDown(CS230::Input::Keys::Down)) {
-        SetVelocity({ GetVelocity().x,-player_velocity.y });
-    }
-    else {
-        SetVelocity({ GetVelocity().x,0 });
-    }
+    //if (Engine::GetInput().KeyDown(CS230::Input::Keys::Up)) {
+    //    SetVelocity({ GetVelocity().x,player_velocity.y });
+    //}
+    //else if (Engine::GetInput().KeyDown(CS230::Input::Keys::Down)) {
+    //    SetVelocity({ GetVelocity().x,-player_velocity.y });
+    //}
+    //else {
+    //    SetVelocity({ GetVelocity().x,0 });
+    //}
     update_score_text();
 }
 

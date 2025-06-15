@@ -4,12 +4,7 @@ Obstacle::Obstacle(Player* player, Math::vec2 pos) :
 	player(player),
 	GameObject(pos)
 {
-	
-	std::random_device rd;
-	std::mt19937 gen(rd());
-
-	std::discrete_distribution<> dist({ 50, 50 }); // index 0: Bomb, 1: Shoes
-	int result = dist(gen);
+	int result = Engine::GetGameStateManager().GetGSComponent<Random>()->PickRandomIndex(2,true);// index 0: Bomb, 1: Shoes
 	switch (result)
 	{
 	case 0:
