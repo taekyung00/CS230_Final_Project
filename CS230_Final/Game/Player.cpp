@@ -56,11 +56,11 @@ void Player::ResolveCollision(GameObject* other_object) {
         Math::rect passenger_rect = other_object->GetGOComponent<CS230::RectCollision>()->WorldBoundary();
 
         if (player_rect.Left() < passenger_rect.Left()) {
-            UpdatePosition(Math::vec2{ (passenger_rect.Left() - player_rect.Right()), 0.0 });
+            UpdatePosition(Math::vec2{ (passenger_rect.Left() - player_rect.Right()-7), 0.0 });
             SetVelocity({ 0, GetVelocity().y });
         }
         else {
-            UpdatePosition(Math::vec2{ (passenger_rect.Right() - player_rect.Left()), 0.0 });
+            UpdatePosition(Math::vec2{ (passenger_rect.Right() - player_rect.Left()+7), 0.0 });
             SetVelocity({ 0, GetVelocity().y });
         }
     }

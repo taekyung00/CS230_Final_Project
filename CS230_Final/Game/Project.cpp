@@ -36,9 +36,9 @@ void Project::Load()
 	GetGSComponent<CS230::GameObjectManager>()->Add(new Passenger(BusLine::line3, player_ptr, 1));
 	GetGSComponent<CS230::GameObjectManager>()->Add(new Passenger(BusLine::line4, player_ptr, 1));
 	GetGSComponent<CS230::GameObjectManager>()->Add(new Passenger(BusLine::line5, player_ptr, 1));
-	GetGSComponent<CS230::GameObjectManager>()->Add(new Obstacle(player_ptr, { static_cast<double>(BusStartPosition + SeatWidthHeight + PlayerWidthHeight * (rand() % 3)) , SeatWidthHeight }));
-	GetGSComponent<CS230::GameObjectManager>()->Add(new Obstacle(player_ptr, { static_cast<double>(BusStartPosition + SeatWidthHeight + PlayerWidthHeight * (rand() % 3)) , SeatWidthHeight * 3 }));
-	GetGSComponent<CS230::GameObjectManager>()->Add(new Obstacle(player_ptr, { static_cast<double>(BusStartPosition + SeatWidthHeight + PlayerWidthHeight * (rand() % 3)) , SeatWidthHeight * 5 }));
+	GetGSComponent<CS230::GameObjectManager>()->Add(new Obstacle(player_ptr, { static_cast<double>(BusStartPosition + SeatWidthHeight + PlayerWidthHeight * ((double)rand() / RAND_MAX) * 2) , SeatWidthHeight }));
+	GetGSComponent<CS230::GameObjectManager>()->Add(new Obstacle(player_ptr, { static_cast<double>(BusStartPosition + SeatWidthHeight + PlayerWidthHeight * ((double)rand() / RAND_MAX) * 2) , SeatWidthHeight * 3 }));
+	GetGSComponent<CS230::GameObjectManager>()->Add(new Obstacle(player_ptr, { static_cast<double>(BusStartPosition + SeatWidthHeight + PlayerWidthHeight * ((double)rand() / RAND_MAX) * 2) , SeatWidthHeight * 5 }));
 }
 
 void Project::Update([[maybe_unused]] double dt) 
