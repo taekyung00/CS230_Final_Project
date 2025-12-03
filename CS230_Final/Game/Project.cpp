@@ -20,8 +20,8 @@ void Project::Load()
 #endif
 	AddGSComponent(new Random());
 	AddGSComponent(new CS230::GameObjectManager);
-	AddGSComponent(new CS230::ParticleManager<Particles::Tears>());
-	AddGSComponent(new CS230::ParticleManager<Particles::Shining>());
+	//AddGSComponent(new CS230::ParticleManager<Particles::Tears>());
+	//AddGSComponent(new CS230::ParticleManager<Particles::Shining>());
 	
 	player_ptr = new Player();
 	GetGSComponent<CS230::GameObjectManager>()->Add(player_ptr);
